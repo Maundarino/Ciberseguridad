@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Registro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="loginUsername">Nombre de usuario:</label>
+            <input type="text" id="loginUsername" name="username" required>
+            <label for="loginPassword">Contraseña:</label>
+            <input type="password" id="loginPassword" name="password" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+
+        <h2>Registro</h2>
+        <form id="registerForm">
+            <label for="registerUsername">Nombre de usuario:</label>
+            <input type="text" id="registerUsername" name="username" required>
+            <label for="registerPassword">Contraseña:</label>
+            <input type="password" id="registerPassword" name="password" required>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

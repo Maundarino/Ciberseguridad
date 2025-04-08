@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "CreamBeige"; /* Cambia esto por el nombre que desees usar */
+  src: url("../assets/fonts/CreamBeige.ttf") format("truetype");
+  font-weight: bold; /* O puedes especificar 'bold' si es una fuente en negrita */
+  font-style: normal; /* Puedes cambiar a 'italic' si es una fuente en cursiva */
+}
+
+@font-face {
+  font-family: "Marykate"; /* Cambia esto por el nombre que desees usar */
+  src: url("../assets/fonts/MaryKate.ttf") format("truetype");
+  font-weight: bold; /* O puedes especificar 'bold' si es una fuente en negrita */
+  font-style: normal; /* Puedes cambiar a 'italic' si es una fuente en cursiva */
+}
