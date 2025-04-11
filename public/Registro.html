@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="Styles.css" />
+  </head>
+  <body>
+    <div class="animated-background"></div>
+    <div class="form-container">
+      <h2>Registro de Usuario</h2>
+      <form id="registroForm">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input
+          type="text"
+          name="apellidoP"
+          placeholder="Apellido Paterno"
+          required
+        />
+        <input
+          type="text"
+          name="apellidoM"
+          placeholder="Apellido Materno"
+          required
+        />
+
+        <input
+          type="number"
+          id="edad"
+          name="edad"
+          min="13"
+          max="120"
+          placeholder="Edad"
+          required
+        />
+
+        <select id="sexo" name="sexo" required>
+          <option value="">Selecciona tu género</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Otro">Otro</option>
+          <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+        </select>
+
+        <input type="text" name="origen" placeholder="Origen" required />
+        <input
+          type="text"
+          name="usuario"
+          placeholder="Nombre de usuario"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Contraseña"
+          minlength="8"
+          required
+        />
+        <button type="submit">Registrarse</button>
+      </form>
+
+      <div class="navigation">
+        <p>¿Ya tienes cuenta?</p>
+        <button onclick="location.href='Login.html'">Iniciar Sesión</button>
+      </div>
+    </div>
+    <script src="Script.js"></script>
+  </body>
+</html>

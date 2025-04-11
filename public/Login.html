@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Registro Pastel</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #fce4ec, #e1f5fe);
+        animation: fondo 10s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      @keyframes fondo {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .login-container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        width: 320px;
+        text-align: center;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 10px;
+        background: #f8bbd0;
+        color: #333;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #ba68c8;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background: #ab47bc;
+      }
+
+      nav {
+        margin-top: 20px;
+      }
+
+      nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #7b1fa2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Iniciar Sesión</h2>
+      <form id="loginForm">
+        <input
+          type="text"
+          id="usuario"
+          name="usuario"
+          placeholder="Usuario"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Contraseña"
+          minlength="8"
+          required
+        />
+
+        <button type="submit">Iniciar sesión</button>
+      </form>
+
+      <nav>
+        <a href="Registro.html">Registro</a>
+      </nav>
+
+      <p id="mensaje"></p>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const usuario = document.getElementById("usuario").value;
+          const password = document.getElementById("password").value;
+          const mensaje = document.getElementById("mensaje");
+
+          try {
+            const res = await fetch(
+              "https://login-kj9u.onrender.com/api/login",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({ usuario, password }),
+              }
+            );
+
+            const data = await res.json();
+
+            if (res.ok) {
+              mensaje.textContent = `Bienvenido, ${data.usuario.nombre}!`;
+              mensaje.style.color = "green";
+
+              // Redirigir al perfil después de 1 segundo
+              setTimeout(() => {
+                window.location.href = "perfil.html";
+              }, 1000);
+            } else {
+              mensaje.textContent = data.error || "Error al iniciar sesión";
+              mensaje.style.color = "red";
+            }
+          } catch (err) {
+            mensaje.textContent = "Error de conexión";
+            mensaje.style.color = "red";
+          }
+        });
+    </script>
+  </body>
+</html>
